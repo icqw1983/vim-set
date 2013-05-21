@@ -129,11 +129,7 @@ set tags+=/usr/include/tags
 set tags+=/usr/include/c++/4.7.2/tags
 
 " 系统剪贴板映射 
-" If you are running Redhat/CentOS, you can install the vim-X11 package.
-" add to .bashrc
-" if [ -e /usr/bin/vimx ]; then
-" 	 alias vim='/usr/bin/vimx'; 
-" fi
+set clipboard=unnamedplus
 map <C-c> "+y
 map <C-v> "+p
 
