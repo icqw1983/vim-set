@@ -1,12 +1,12 @@
 $-------------------------------------------------------------------------
 == preprocessor.include-global ==
-#include	<<CURSOR>>
+#include <<CURSOR>>
 $-------------------------------------------------------------------------
 == preprocessor.include-local ==
-#include	"<CURSOR>"
+#include "<CURSOR>"
 $-------------------------------------------------------------------------
 == preprocessor.define ==
-#define	<CURSOR>			/*  */
+#define <CURSOR>			/*  */
 $-------------------------------------------------------------------------
 == preprocessor.undefine ==
 #undef	<CURSOR>			/*  */

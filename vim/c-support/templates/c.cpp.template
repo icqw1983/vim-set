@@ -1,10 +1,10 @@
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 $
 == cpp.cin ==
-cin	>> <CURSOR>;
+std::cin >> <CURSOR>;
 $
 == cpp.cout ==
-cout	<< <CURSOR> << endl;
+std::cout << <CURSOR> << std::endl;
 $
 == cpp.cout-operator == insert ==
 << "<CURSOR>" 
