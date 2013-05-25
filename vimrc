@@ -7,7 +7,7 @@
 "
 "     博客：http://www.0xffffff.org
 "
-"     最后修改时间：2013-4-12
+"     最后修改时间：2013-5-25
 "
 "-------------------------------------------------------------------
 
@@ -80,7 +80,7 @@ let g:clang_auto_select=1
 let g:clang_complete_auto=1
 let g:clang_complete_macros=1
 let g:clang_use_library=1
-"let g:clang_user_options="-I/usr/include -I/usr/include/c++/4.7.2 || exit 0"
+"let g:clang_user_options="-I/usr/include"
 
 " Java 自动补全设置
 autocmd Filetype java set omnifunc=javacomplete#Complete
@@ -130,8 +130,8 @@ set tags+=/usr/include/c++/4.7.2/tags
 
 " 系统剪贴板映射 
 set clipboard=unnamedplus
-map <C-c> "+y
-map <C-v> "+p
+map <C-y> "+y
+map <C-p> "+p
 
 " QuickFix 插件的设置
 
@@ -161,3 +161,6 @@ set t_Co=256 		" Explicitly tell Vim that the terminal supports 256 colors
 set guifont=PowerlineSymbols\ for\ Powerline 
 let g:Powerline_symbols = 'unicode'
 
+" 显示历史打开文件
+map <F3> :MRU<CR>
+imap <F3> <ESC>:MRU<CR>
