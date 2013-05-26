@@ -118,11 +118,14 @@ WinManagerForceReSize	winmanager.txt	/*WinManagerForceReSize*
 WinManagerResumeAUs	winmanager.txt	/*WinManagerResumeAUs*
 WinManagerSuspendAUs	winmanager.txt	/*WinManagerSuspendAUs*
 c-support	csupport.txt	/*c-support*
+clang_close-preview	clang_complete.txt	/*clang_close-preview*
 clang_complete	clang_complete.txt	/*clang_complete*
 clang_complete-author	clang_complete.txt	/*clang_complete-author*
 clang_complete-auto_select	clang_complete.txt	/*clang_complete-auto_select*
 clang_complete-auto_user_options	clang_complete.txt	/*clang_complete-auto_user_options*
 clang_complete-cc_args	clang_complete.txt	/*clang_complete-cc_args*
+clang_complete-clang_trailing_placeholder	clang_complete.txt	/*clang_complete-clang_trailing_placeholder*
+clang_complete-compilation_database	clang_complete.txt	/*clang_complete-compilation_database*
 clang_complete-compl_kinds	clang_complete.txt	/*clang_complete-compl_kinds*
 clang_complete-complete_auto	clang_complete.txt	/*clang_complete-complete_auto*
 clang_complete-complete_macros	clang_complete.txt	/*clang_complete-complete_macros*
@@ -132,6 +135,7 @@ clang_complete-configuration	clang_complete.txt	/*clang_complete-configuration*
 clang_complete-copen	clang_complete.txt	/*clang_complete-copen*
 clang_complete-description	clang_complete.txt	/*clang_complete-description*
 clang_complete-exec	clang_complete.txt	/*clang_complete-exec*
+clang_complete-faq	clang_complete.txt	/*clang_complete-faq*
 clang_complete-hl_errors	clang_complete.txt	/*clang_complete-hl_errors*
 clang_complete-issues	clang_complete.txt	/*clang_complete-issues*
 clang_complete-library_path	clang_complete.txt	/*clang_complete-library_path*
@@ -260,6 +264,8 @@ g:SuperTabNoCompleteBefore	supertab.txt	/*g:SuperTabNoCompleteBefore*
 g:SuperTabRetainCompletionDuration	supertab.txt	/*g:SuperTabRetainCompletionDuration*
 g:clang_auto_select	clang_complete.txt	/*g:clang_auto_select*
 g:clang_auto_user_options	clang_complete.txt	/*g:clang_auto_user_options*
+g:clang_close_preview	clang_complete.txt	/*g:clang_close_preview*
+g:clang_compilation_database	clang_complete.txt	/*g:clang_compilation_database*
 g:clang_complete_auto	clang_complete.txt	/*g:clang_complete_auto*
 g:clang_complete_copen	clang_complete.txt	/*g:clang_complete_copen*
 g:clang_complete_macros	clang_complete.txt	/*g:clang_complete_macros*
@@ -272,6 +278,7 @@ g:clang_periodic_quickfix	clang_complete.txt	/*g:clang_periodic_quickfix*
 g:clang_snippets	clang_complete.txt	/*g:clang_snippets*
 g:clang_snippets_engine	clang_complete.txt	/*g:clang_snippets_engine*
 g:clang_sort_algo	clang_complete.txt	/*g:clang_sort_algo*
+g:clang_trailing_placeholder	clang_complete.txt	/*g:clang_trailing_placeholder*
 g:clang_use_library	clang_complete.txt	/*g:clang_use_library*
 g:clang_user_options	clang_complete.txt	/*g:clang_user_options*
 java-parser-history	javacomplete.txt	/*java-parser-history*
