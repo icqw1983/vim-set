@@ -14,8 +14,8 @@ let g:colors_name = "ron"
 
 hi Normal			guifg=cyan				guibg=black
 hi NonText			guifg=brown
-hi comment			guifg=green             ctermfg=darkgrey
-hi constant			guifg=cyan				gui=bold
+hi comment			guifg=green            ctermfg=darkgrey
+hi constant			guifg=cyan				
 hi identifier		guifg=cyan				ctermfg=blue
 hi statement		guifg=lightblue	
 hi preproc			guifg=green

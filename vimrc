@@ -127,6 +127,25 @@ set tags=tags
 set tags+=./tags
 set tags+=/usr/include/tags
 set tags+=/usr/include/c++/4.7.2/tags
+set tags+=/usr/include/Qt/tags
+set tags+=/usr/include/Qt3Support/tags
+set tags+=/usr/include/QtCore/tags
+set tags+=/usr/include/QtDBus/tags
+set tags+=/usr/include/QtDeclarative/tags
+set tags+=/usr/include/QtDesigner/tags
+set tags+=/usr/include/QtGui/tags
+set tags+=/usr/include/QtHelp/tags
+set tags+=/usr/include/QtMultimedia/tags
+set tags+=/usr/include/QtNetwork/tags
+set tags+=/usr/include/QtOpenGL/tags
+set tags+=/usr/include/QtScript/tags
+set tags+=/usr/include/QtScriptTools/tags
+set tags+=/usr/include/QtSql/tags
+set tags+=/usr/include/QtSvg/tags
+set tags+=/usr/include/QtTest/tags
+set tags+=/usr/include/QtUiTools/tags
+set tags+=/usr/include/QtXml/tags
+set tags+=/usr/include/QtXmlPatterns/tags
 
 " 系统剪贴板映射 
 set clipboard=unnamedplus
@@ -150,7 +169,7 @@ imap <F7> <ESC>:make<CR><CR><CR> :copen<CR><CR>
 imap <F8> <ESC>:cp<CR>
 imap <F9> <ESC>:cn<CR>
 
-" 按下F12，在当前代码的 .c / .h 之间切换
+" 按下F10，在当前代码的 .c / .h 之间切换
 nnoremap <silent> <F10> :A<CR>
 
 " powerline 配置
