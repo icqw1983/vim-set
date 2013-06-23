@@ -16,7 +16,8 @@ filetype plugin indent on 	 " 打开文件类型检测
 set nocp 			 " 使用不兼容 vi 的模式（vi模式一些操作很不方便）
 set autoindent       		 " 设置自动对齐(缩进)：即每行的缩进值与上一行相等；使用 noautoindent 取消设置
 set smartindent        		 " 智能对齐方式
-
+set wrap 			 " 自动换行
+set linebreak 			 " 整词换行
 " 个人不喜欢4个空格的缩进
 "set tabstop=4 			 " 设置制表符(tab键)的宽度
 "set softtabstop=4     	 	 " 设置软制表符的宽度    
@@ -44,13 +45,15 @@ nmap wm :WMToggle<CR>
 " 修改Zen Coding 默认的快捷键映射
 imap <C-e> <C-y>,
 
-" ClosePair 函数的实现
+" 符号配对
 function ClosePair(char)
-if getline('.')[col('.') - 1] == a:char
-	return "\<Right>"
-else
-	return a:char
-endif
+	if getline('.')[col('.') - 1] == a:char
+		return "\<Right>"
+	elseif (a:char == "\'" || a:char == "\"")
+		return a:char.a:char."\<left>"
+	else
+		return a:char
+	endif
 endf
 
 " 设置键映射
@@ -183,3 +186,12 @@ let g:Powerline_symbols = 'unicode'
 " 显示历史打开文件
 map <F3> :MRU<CR>
 imap <F3> <ESC>:MRU<CR>
+
+" 预防手误的杀招
+cnoremap Q! q!
+cnoremap Q1 q!
+command  Q  q
+command  Wq wq
+command  WQ wq
+command  W  w
+
