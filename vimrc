@@ -30,6 +30,9 @@ set number              	 " 显示行号
 set cul				 " 显示当前行下划线
 colorscheme ron			 " 设置配色方案
 
+au BufNewFile,BufRead *.wsgi set filetype=python
+au BufNewFile,BufRead *.inc set filetype=asm
+
 " MiniBufferExplorer 的设置
 let g:miniBufExplMapWindowNavVim=1 		" 按下Ctrl+h/j/k/l，可以切换到当前窗口的上下左右窗口
 let g:miniBufExplMapWindowNavArrows=1 		" 按下Ctrl+箭头，可以切换到当前窗口的上下左右窗口
@@ -61,7 +64,7 @@ endf
 " 虽然这里注释掉了，但是通过修改 echofunc 插件代码在插件内成功实现...^ ^
 " inoremap ( ()<ESC>i
 " inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap { {}<ESC>i
+inoremap { {}<ESC>i<CR><ESC>V<O
 inoremap } <c-r>=ClosePair('}')<CR>
 inoremap [ []<ESC>i
 inoremap ] <c-r>=ClosePair(']')<CR>
@@ -88,36 +91,6 @@ let g:clang_use_library=1
 " Java 自动补全设置
 autocmd Filetype java set omnifunc=javacomplete#Complete
 autocmd Filetype java set completefunc=javacomplete#CompleteParamsInfo
-
-inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P> 
-inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
-autocmd Filetype java,javascript,jsp inoremap <buffer>  .  .<C-X><C-O><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  A  A<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  B  B<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  C  C<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  D  D<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  E  E<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  F  F<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  G  G<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  H  H<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  I  I<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  J  J<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  K  K<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  L  L<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  M  M<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  N  N<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  O  O<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  P  P<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  Q  Q<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  R  R<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  S  S<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  T  T<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  U  U<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  V  V<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  W  W<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  X  X<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  Y  Y<C-N><C-P>
-autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  Z  Z<C-N><C-P>
 
 " ctags 相关设置
 
