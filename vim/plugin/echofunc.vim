@@ -6,7 +6,7 @@
 "               supports.
 " Authors:      Ming Bai <mbbill AT gmail DOT com>,
 "               Wu Yongwei <wuyongwei AT gmail DOT com>
-" Last Change:  2012-02-04 19:18:00
+" Last Change:  2013-03-24 17:09:24
 " Version:      2.0
 "
 " Install:      1. Put echofunc.vim to /plugin directory.
@@ -358,10 +358,8 @@ function! EchoFuncStart()
     let b:EchoFuncStarted=1
     let s:ShowMode=&showmode
     let s:CmdHeight=&cmdheight
-"    inoremap <silent> <buffer>  (   ()<ESC>i<c-r>=EchoFunc()<cr>
-"    inoremap <silent> <buffer>  ;    ;<c-r>=EchoFuncClear()<cr>
-    inoremap <silent> <buffer>  (    (<c-r>=EchoFunc()<cr>
-    inoremap <silent> <buffer>  )    )<c-r>=EchoFuncClear()<cr>
+    inoremap <silent> <buffer>  (   (<c-r>=EchoFunc()<cr>
+    inoremap <silent> <buffer>  )    <c-r>=EchoFuncClear()<cr>)
     exec 'inoremap <silent> <buffer> ' . g:EchoFuncKeyNext . ' <c-r>=EchoFuncN()<cr>'
     exec 'inoremap <silent> <buffer> ' . g:EchoFuncKeyPrev . ' <c-r>=EchoFuncP()<cr>'
 endfunction
@@ -383,7 +381,7 @@ function! EchoFuncStop()
     unlet b:EchoFuncStarted
 endfunction
 
-function! s:RestoreSettings()
+function! EchoFuncRestoreSettings()
     if !exists('b:EchoFuncStarted')
         return
     endif
@@ -527,7 +525,7 @@ endfunction
 function! s:EchoFuncInitialize()
     augroup EchoFunc
         autocmd!
-        autocmd InsertLeave * call s:RestoreSettings()
+        autocmd InsertLeave * call EchoFuncRestoreSettings()
         autocmd BufRead,BufNewFile * call CheckedEchoFuncStart()
         if has('gui_running')
             menu    &Tools.Echo\ F&unction.Echo\ F&unction\ Start   :call EchoFuncStart()<CR>

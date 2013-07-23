@@ -64,7 +64,8 @@ endf
 " 虽然这里注释掉了，但是通过修改 echofunc 插件代码在插件内成功实现...^ ^
 " inoremap ( ()<ESC>i
 " inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap { {}<ESC>i<CR><ESC>V<O
+" inoremap { {}<ESC>i<CR><ESC>V<O
+inoremap { {}<ESC>i
 inoremap } <c-r>=ClosePair('}')<CR>
 inoremap [ []<ESC>i
 inoremap ] <c-r>=ClosePair(']')<CR>
@@ -95,13 +96,20 @@ autocmd Filetype java set completefunc=javacomplete#CompleteParamsInfo
 " ctags 相关设置
 
 " 按下F5，在当前目录递归生成tag文件
-map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
-imap <F5> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
+map <F5> :!ctags -R<CR><CR>
+imap <F5> <ESC>:!ctags -R<CR><CR>
 
 " vim 启动时自动载入以下tags文件
 set tags=tags
 set tags+=./tags
+
+"set tags+=/usr/local/src/linux-2.6.20/tags
+"set tags+=/usr/local/src/linux-3.10.2/tags
 set tags+=/usr/include/tags
+set tags+=/usr/include/sys/tags
+set tags+=/usr/include/linux/tags
+set tags+=/usr/include/arpa/tags
+set tags+=/usr/include/netinet/tags
 set tags+=/usr/include/c++/4.7.2/tags
 set tags+=/usr/include/Qt/tags
 set tags+=/usr/include/Qt3Support/tags
