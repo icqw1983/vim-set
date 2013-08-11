@@ -11,6 +11,8 @@
 "
 "-------------------------------------------------------------------
 
+set shortmess=atI 		 " 启动的时候不显示那个援助乌干达儿童的信息
+set autoread 			 " 正在编辑文件被其他程序改动时自动重新加载
 syntax on  	         	 " 使用语法高亮
 filetype plugin indent on 	 " 打开文件类型检测
 set nocp 			 " 使用不兼容 vi 的模式（vi模式一些操作很不方便）
@@ -29,6 +31,9 @@ set mouse=a              	 " 使用鼠标
 set number              	 " 显示行号
 set cul				 " 显示当前行下划线
 colorscheme ron			 " 设置配色方案
+
+let g:indentLine_color_term=239
+let g:indentLine_char='¦'
 
 au BufNewFile,BufRead *.wsgi set filetype=python
 au BufNewFile,BufRead *.inc set filetype=asm
@@ -103,9 +108,11 @@ imap <F5> <ESC>:!ctags -R<CR><CR>
 set tags=tags
 set tags+=./tags
 
-"set tags+=/usr/local/src/linux-2.6.20/tags
-"set tags+=/usr/local/src/linux-3.10.2/tags
+"set tags+=/usr/local/src/linux-2.6.32.61/tags
+set tags+=/usr/local/src/linux-3.10.4/tags
+set tags+=/usr/local/src/bash-4.2/tags
 set tags+=/usr/include/tags
+set tags+=/usr/include/bits/tags
 set tags+=/usr/include/sys/tags
 set tags+=/usr/include/linux/tags
 set tags+=/usr/include/arpa/tags
