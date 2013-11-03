@@ -35,8 +35,8 @@ colorscheme ron			 " 设置配色方案
 let g:indentLine_color_term=239
 let g:indentLine_char='¦'
 
-au BufNewFile,BufRead *.wsgi set filetype=python
-au BufNewFile,BufRead *.inc set filetype=asm
+au BufNewFile,BufRead *.py,*.pyw,*.wsgi setf python
+au BufNewFile,BufRead *.inc setf asm
 
 " MiniBufferExplorer 的设置
 let g:miniBufExplMapWindowNavVim=1 		" 按下Ctrl+h/j/k/l，可以切换到当前窗口的上下左右窗口
@@ -70,12 +70,12 @@ endf
 " inoremap ( ()<ESC>i
 " inoremap ) <c-r>=ClosePair(')')<CR>
 " inoremap { {}<ESC>i<CR><ESC>V<O
-inoremap { {}<ESC>i
-inoremap } <c-r>=ClosePair('}')<CR>
-inoremap [ []<ESC>i
-inoremap ] <c-r>=ClosePair(']')<CR>
-"inoremap " ""<ESC>i
-"inoremap ' ''<ESC>i
+" inoremap { {}<ESC>i
+" inoremap } <c-r>=ClosePair('}')<CR>
+" inoremap [ []<ESC>i
+" inoremap ] <c-r>=ClosePair(']')<CR>
+" inoremap " ""<ESC>i
+" inoremap ' ''<ESC>i
 
 " 设置超级TAB的补全
 let g:SuperTabRetainCompletionType=0
@@ -98,6 +98,16 @@ let g:clang_use_library=1
 autocmd Filetype java set omnifunc=javacomplete#Complete
 autocmd Filetype java set completefunc=javacomplete#CompleteParamsInfo
 
+" Python 自动补全
+let g:pydiction_location = '~/.vim/python/complete-dict'
+
+" 显示历史打开文件
+map <F3> :MRU<CR>
+imap <F3> <ESC>:MRU<CR>
+
+" F4 切换粘贴和非粘贴模式
+set pastetoggle=<F4>
+
 " ctags 相关设置
 
 " 按下F5，在当前目录递归生成tag文件
@@ -110,7 +120,7 @@ set tags+=./tags
 
 "set tags+=/usr/local/src/linux-2.6.32.61/tags
 set tags+=/usr/local/src/linux-3.10.4/tags
-set tags+=/usr/local/src/bash-4.2/tags
+"set tags+=/usr/local/src/bash-4.2/tags
 set tags+=/usr/include/tags
 set tags+=/usr/include/bits/tags
 set tags+=/usr/include/sys/tags
@@ -170,10 +180,6 @@ set encoding=utf-8 	" Necessary to show Unicode glyphs
 set t_Co=256 		" Explicitly tell Vim that the terminal supports 256 colors
 set guifont=PowerlineSymbols\ for\ Powerline 
 let g:Powerline_symbols = 'unicode'
-
-" 显示历史打开文件
-map <F3> :MRU<CR>
-imap <F3> <ESC>:MRU<CR>
 
 " 预防手误的杀招
 cnoremap Q! q!

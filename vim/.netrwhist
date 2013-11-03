@@ -1,10 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/etc/profile.d'
-let g:netrw_dirhist_2='/home/hurley/2013'
-let g:netrw_dirhist_3='/home/hurley/Program'
-let g:netrw_dirhist_4='/home/hurley/.cgdb'
-let g:netrw_dirhist_5='/mnt/kernel/boot'
-let g:netrw_dirhist_6='/home/hurley/Github/hurlex/src/monitor'
-let g:netrw_dirhist_7='/usr/include/boost/timer'
-let g:netrw_dirhist_8='/home/hurley/Github/hurlex'
+let g:netrw_dirhist_cnt =0
