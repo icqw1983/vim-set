@@ -1,7 +1,7 @@
 vim-set
 =======
 
-我的vim配置和bashrc配置（这个是只是为了备份自己的设置）
+我的vim配置和bashrc配置（bashrc只是为了备份自己的设置...请无视之）
 
 vim配置安装方法：
 
@@ -13,4 +13,4 @@ vim配置安装方法：
 
 4. 功能的话自己看vimrc，或者参考我的博文 
 
-    http://toqianmo.sinaapp.com/2013/01/09/vim%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE.html
+	http://toqianmo.sinaapp.com/?p=183
