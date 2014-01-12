@@ -54,15 +54,15 @@ nmap wm :WMToggle<CR>
 imap <C-e> <C-y>,
 
 " 符号配对
-function ClosePair(char)
-	if getline('.')[col('.') - 1] == a:char
-		return "\<Right>"
-	elseif (a:char == "\'" || a:char == "\"")
-		return a:char.a:char."\<left>"
-	else
-		return a:char
-	endif
-endf
+" function ClosePair(char)
+" 	if getline('.')[col('.') - 1] == a:char
+" 		return "\<Right>"
+" 	elseif (a:char == "\'" || a:char == "\"")
+" 		return a:char.a:char."\<left>"
+" 	else
+" 		return a:char
+" 	endif
+" endf
 
 " 设置键映射
 " 很无奈下面的小括号匹配和 echofunc 插件不兼容....
@@ -70,9 +70,9 @@ endf
 " inoremap ( ()<ESC>i
 " inoremap ) <c-r>=ClosePair(')')<CR>
 " inoremap { {}<ESC>i<CR><ESC>V<O
-" inoremap { {}<ESC>i
+ inoremap { {}<ESC>i
 " inoremap } <c-r>=ClosePair('}')<CR>
-" inoremap [ []<ESC>i
+ inoremap [ []<ESC>i
 " inoremap ] <c-r>=ClosePair(']')<CR>
 " inoremap " ""<ESC>i
 " inoremap ' ''<ESC>i
@@ -92,7 +92,7 @@ let g:clang_auto_select=1
 let g:clang_complete_auto=1
 let g:clang_complete_macros=1
 let g:clang_use_library=1
-"let g:clang_user_options="-I/usr/include"
+"let g:clang_user_options="-std=c++11"
 
 " Java 自动补全设置
 autocmd Filetype java set omnifunc=javacomplete#Complete
@@ -108,6 +108,9 @@ imap <F3> <ESC>:MRU<CR>
 " F4 切换粘贴和非粘贴模式
 set pastetoggle=<F4>
 
+" cscope 设置
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
 " ctags 相关设置
 
 " 按下F5，在当前目录递归生成tag文件
@@ -119,14 +122,14 @@ set tags=tags
 set tags+=./tags
 
 "set tags+=/usr/local/src/linux-2.6.32.61/tags
-set tags+=/usr/local/src/linux-3.10.4/tags
+set tags+=/usr/local/src/linux-3.12.6/tags
 "set tags+=/usr/local/src/bash-4.2/tags
-set tags+=/usr/include/tags
-set tags+=/usr/include/bits/tags
-set tags+=/usr/include/sys/tags
-set tags+=/usr/include/linux/tags
-set tags+=/usr/include/arpa/tags
-set tags+=/usr/include/netinet/tags
+"set tags+=/usr/include/tags
+"set tags+=/usr/include/bits/tags
+"set tags+=/usr/include/sys/tags
+"set tags+=/usr/include/linux/tags
+"set tags+=/usr/include/arpa/tags
+"set tags+=/usr/include/netinet/tags
 set tags+=/usr/include/c++/4.7.2/tags
 set tags+=/usr/include/Qt/tags
 set tags+=/usr/include/Qt3Support/tags
@@ -188,4 +191,22 @@ command  Q  q
 command  Wq wq
 command  WQ wq
 command  W  w
+
+function! Mydict()
+"执行sdcv命令查询单词的含义,返回的值保存在expl变量中
+let expl=system('sdcv -n ' . expand("<cword>"))
+"在每个窗口中执行命令，判断窗口中的文件名是否是dict-tmp，如果是，强制关闭
+windo if expand("%")=="dict-tmp" |q!|endif	
+"纵向分割窗口，宽度为30，新窗口的内容为dict-tmp文件的内容
+30vsp dict-tmp
+"设置查询结果窗口的属性，不缓存，不保留交换文件
+setlocal buftype=nofile bufhidden=hide noswapfile
+"将expl的内容显示到查询结果窗口
+1s/^/\=expl/
+"跳转回文本窗口
+wincmd p
+endf
+
+"按键绑定，将调用函数并执行
+map f :call Mydict()<CR><C-j><C-l>
 
