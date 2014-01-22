@@ -11,7 +11,6 @@
 "
 "-------------------------------------------------------------------
 
-set shortmess=atI 		 " 启动的时候不显示那个援助乌干达儿童的信息
 set autoread 			 " 正在编辑文件被其他程序改动时自动重新加载
 syntax on  	         	 " 使用语法高亮
 filetype plugin indent on 	 " 打开文件类型检测
@@ -81,6 +80,9 @@ imap <C-e> <C-y>,
 let g:SuperTabRetainCompletionType=0
 let g:SuperTabDefaultCompletionType="<C-X><C-U>"
 
+"golang 自动补全
+autocmd Filetype go let g:SuperTabDefaultCompletionType="<C-x><C-o>"
+
 " 自动补全列表的颜色设置
 highlight Pmenu ctermfg=black 
 highlight PmenuSel ctermfg=white ctermbg=black
@@ -108,9 +110,6 @@ imap <F3> <ESC>:MRU<CR>
 " F4 切换粘贴和非粘贴模式
 set pastetoggle=<F4>
 
-" cscope 设置
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-
 " ctags 相关设置
 
 " 按下F5，在当前目录递归生成tag文件
@@ -122,7 +121,7 @@ set tags=tags
 set tags+=./tags
 
 "set tags+=/usr/local/src/linux-2.6.32.61/tags
-set tags+=/usr/local/src/linux-3.12.6/tags
+"set tags+=/usr/local/src/linux-3.12.6/tags
 "set tags+=/usr/local/src/bash-4.2/tags
 "set tags+=/usr/include/tags
 "set tags+=/usr/include/bits/tags
@@ -177,12 +176,12 @@ imap <F9> <ESC>:cn<CR>
 nnoremap <silent> <F10> :A<CR>
 
 " powerline 配置
-set nocompatible   	" Disable vi-compatibility
-set laststatus=2   	" Always show the statusline
-set encoding=utf-8 	" Necessary to show Unicode glyphs
-set t_Co=256 		" Explicitly tell Vim that the terminal supports 256 colors
+set nocompatible
+set laststatus=2
+set encoding=utf-8
+set t_Co=256
 set guifont=PowerlineSymbols\ for\ Powerline 
-let g:Powerline_symbols = 'unicode'
+let g:Powerline_symbols='unicode'
 
 " 预防手误的杀招
 cnoremap Q! q!
@@ -193,17 +192,11 @@ command  WQ wq
 command  W  w
 
 function! Mydict()
-"执行sdcv命令查询单词的含义,返回的值保存在expl变量中
 let expl=system('sdcv -n ' . expand("<cword>"))
-"在每个窗口中执行命令，判断窗口中的文件名是否是dict-tmp，如果是，强制关闭
 windo if expand("%")=="dict-tmp" |q!|endif	
-"纵向分割窗口，宽度为30，新窗口的内容为dict-tmp文件的内容
 30vsp dict-tmp
-"设置查询结果窗口的属性，不缓存，不保留交换文件
 setlocal buftype=nofile bufhidden=hide noswapfile
-"将expl的内容显示到查询结果窗口
 1s/^/\=expl/
-"跳转回文本窗口
 wincmd p
 endf
 
