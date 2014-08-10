@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/hurley/Public/goagent/server'
-let g:netrw_dirhist_2='/home/hurley/Github/qianmo/src/sys'
-let g:netrw_dirhist_3='/home/hurley/Github/packet-sniffer/src/include'
-let g:netrw_dirhist_4='/home/hurley/Program/server/runtime'
-let g:netrw_dirhist_5='/home/hurley/Program/server/protocol'
-let g:netrw_dirhist_6='/home/hurley/Program/stethoscope/local-server/connect'
