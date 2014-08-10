@@ -53,15 +53,15 @@ nmap wm :WMToggle<CR>
 imap <C-e> <C-y>,
 
 " 符号配对
-" function ClosePair(char)
-" 	if getline('.')[col('.') - 1] == a:char
-" 		return "\<Right>"
-" 	elseif (a:char == "\'" || a:char == "\"")
-" 		return a:char.a:char."\<left>"
-" 	else
-" 		return a:char
-" 	endif
-" endf
+function ClosePair(char)
+	if getline('.')[col('.') - 1] == a:char
+ 		return "\<Right>"
+ 	elseif (a:char == "\'" || a:char == "\"")
+ 		return a:char.a:char."\<left>"
+ 	else
+ 		return a:char
+	endif
+endf
 
 " 设置键映射
 " 很无奈下面的小括号匹配和 echofunc 插件不兼容....
@@ -69,10 +69,10 @@ imap <C-e> <C-y>,
 " inoremap ( ()<ESC>i
 " inoremap ) <c-r>=ClosePair(')')<CR>
 " inoremap { {}<ESC>i<CR><ESC>V<O
- inoremap { {}<ESC>i
-" inoremap } <c-r>=ClosePair('}')<CR>
- inoremap [ []<ESC>i
-" inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap { {}<ESC>i
+inoremap } <c-r>=ClosePair('}')<CR>
+inoremap [ []<ESC>i
+inoremap ] <c-r>=ClosePair(']')<CR>
 " inoremap " ""<ESC>i
 " inoremap ' ''<ESC>i
 
@@ -94,7 +94,7 @@ let g:clang_auto_select=1
 let g:clang_complete_auto=1
 let g:clang_complete_macros=1
 let g:clang_use_library=1
-"let g:clang_user_options="-std=c++11"
+let g:clang_user_options="-std=c++11"
 
 " Java 自动补全设置
 autocmd Filetype java set omnifunc=javacomplete#Complete
@@ -122,33 +122,32 @@ set tags+=./tags
 
 "set tags+=/usr/local/src/linux-2.6.32.61/tags
 "set tags+=/usr/local/src/linux-3.12.6/tags
-"set tags+=/usr/local/src/bash-4.2/tags
-"set tags+=/usr/include/tags
-"set tags+=/usr/include/bits/tags
-"set tags+=/usr/include/sys/tags
-"set tags+=/usr/include/linux/tags
-"set tags+=/usr/include/arpa/tags
-"set tags+=/usr/include/netinet/tags
+set tags+=/usr/include/tags
+set tags+=/usr/include/bits/tags
+set tags+=/usr/include/sys/tags
+set tags+=/usr/include/linux/tags
+set tags+=/usr/include/arpa/tags
+set tags+=/usr/include/netinet/tags
 set tags+=/usr/include/c++/4.7.2/tags
-set tags+=/usr/include/Qt/tags
-set tags+=/usr/include/Qt3Support/tags
-set tags+=/usr/include/QtCore/tags
-set tags+=/usr/include/QtDBus/tags
-set tags+=/usr/include/QtDeclarative/tags
-set tags+=/usr/include/QtDesigner/tags
-set tags+=/usr/include/QtGui/tags
-set tags+=/usr/include/QtHelp/tags
-set tags+=/usr/include/QtMultimedia/tags
-set tags+=/usr/include/QtNetwork/tags
-set tags+=/usr/include/QtOpenGL/tags
-set tags+=/usr/include/QtScript/tags
-set tags+=/usr/include/QtScriptTools/tags
-set tags+=/usr/include/QtSql/tags
-set tags+=/usr/include/QtSvg/tags
-set tags+=/usr/include/QtTest/tags
-set tags+=/usr/include/QtUiTools/tags
-set tags+=/usr/include/QtXml/tags
-set tags+=/usr/include/QtXmlPatterns/tags
+"set tags+=/usr/include/Qt/tags
+"set tags+=/usr/include/Qt3Support/tags
+"set tags+=/usr/include/QtCore/tags
+"set tags+=/usr/include/QtDBus/tags
+"set tags+=/usr/include/QtDeclarative/tags
+"set tags+=/usr/include/QtDesigner/tags
+"set tags+=/usr/include/QtGui/tags
+"set tags+=/usr/include/QtHelp/tags
+"set tags+=/usr/include/QtMultimedia/tags
+"set tags+=/usr/include/QtNetwork/tags
+"set tags+=/usr/include/QtOpenGL/tags
+"set tags+=/usr/include/QtScript/tags
+"set tags+=/usr/include/QtScriptTools/tags
+"set tags+=/usr/include/QtSql/tags
+"set tags+=/usr/include/QtSvg/tags
+"set tags+=/usr/include/QtTest/tags
+"set tags+=/usr/include/QtUiTools/tags
+"set tags+=/usr/include/QtXml/tags
+"set tags+=/usr/include/QtXmlPatterns/tags
 
 " 系统剪贴板映射 
 set clipboard=unnamedplus
