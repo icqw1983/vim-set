@@ -13,4 +13,4 @@ vim配置安装方法：
 
 4. 功能的话自己看vimrc，或者参考我的博文 
 
-	http://toqianmo.sinaapp.com/?p=183
+	 http://www.0xffffff.org/?p=183

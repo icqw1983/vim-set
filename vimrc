@@ -4,14 +4,47 @@
 "	最后修改时间：2014-08-10
 "-------------------------------------------------------------------
 
-syntax on                         " 使用语法高亮
-filetype plugin indent on        " 打开文件类型检测
+" vundle 配置
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle
+call vundle#begin()
 
+Plugin 'gmarik/Vundle'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'spf13/vim-colors'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'WolfgangMehner/vim-plugins'
+
+" python
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Bundle 'klen/python-mode'
+Bundle 'python.vim'
+Bundle 'python_match.vim'
+Bundle 'pythoncomplete'
+
+Plugin 'clang-complete'
+Plugin 'supertab'
+Plugin 'ku-quickfix'
+Plugin 'echofunc.vim'
+Plugin 'a.vim'
+Plugin 'minibufexpl.vim'
+Plugin 'mru.vim'
+Plugin 'winmanager'
+Plugin 'taglist.vim'
+Plugin 'tagexplorer.vim'
+
+call vundle#end()
+
+filetype plugin indent on
+syntax on                        " 使用语法高亮
 set autoread                     " 正在编辑文件被其他程序改动时自动重新加载
 set nocp                         " 使用不兼容 vi 的模式
 
 set autoindent       		 " 设置自动对齐(缩进)
-set smartindent        	 " 智能对齐方式
+set smartindent               	 " 智能对齐方式
 set wrap 			 " 自动换行
 set linebreak 			 " 整词换行
 
@@ -21,17 +54,18 @@ set mouse=a              	 " 使用鼠标
 set number              	 " 显示行号
 set cul                          " 显示当前行下划线
 
-set tabstop=8                   " 设置制表符(tab键)的宽度
-set softtabstop=8               " 设置软制表符的宽度
+set tabstop=8                    " 设置制表符(tab键)的宽度
+set softtabstop=8                " 设置软制表符的宽度
 set expandtab			 " Tab替换空格
 
 scriptencoding utf-8             " 设置编码
 
 set cursorline                   " 高亮当前行
+
 highlight clear SignColumn
 highlight clear LineNr
 
-colorscheme ron                   " 设置配色方案
+colorscheme ron                  " 设置配色方案
 
 if filereadable(expand("~/.vim/colors/solarized.vim"))
         "let g:solarized_termcolors=256
@@ -40,33 +74,6 @@ if filereadable(expand("~/.vim/colors/solarized.vim"))
         "let g:solarized_visibility="normal"
         "color solarized
 endif
-
-" vundle 配置
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle
-call vundle#begin()
-
-Plugin 'gmarik/Vundle'
-Plugin 'tpope/vim-fugitive'
-Plugin 'spf13/vim-colors'
-Plugin 'honza/vim-snippets'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'WolfgangMehner/vim-plugins'
-Plugin 'clang-complete'
-Plugin 'supertab'
-
-Plugin 'L9'
-Plugin 'a.vim'
-Plugin 'minibufexpl.vim'
-Plugin 'mru.vim'
-Plugin 'winmanager'
-Plugin 'taglist.vim'
-Plugin 'tagexplorer.vim'
-
-call vundle#end()
-filetype plugin indent on
 
 " 自动补全列表的颜色设置
 highlight Pmenu ctermfg=black 
@@ -84,6 +91,19 @@ let g:clang_user_options="-std=c++11"
 " 设置超级TAB的补全
 let g:SuperTabRetainCompletionType=0
 let g:SuperTabDefaultCompletionType="<C-X><C-U>"
+
+" UltiSnips(python 自动补全)
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Pymode
+let g:pymode_lint_checkers = ['pyflakes']
+let g:pymode_trim_whitespaces = 0
+let g:pymode_options = 0
+let g:pymode_rope = 0
+
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " MiniBufferExplorer 的设置
 let g:miniBufExplMapWindowNavVim=1 		" 按下Ctrl+h/j/k/l，可以切换到当前窗口的上下左右窗口
