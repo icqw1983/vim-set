@@ -68,10 +68,10 @@ highlight clear LineNr
 colorscheme ron                  " 设置配色方案
 
 if filereadable(expand("~/.vim/colors/solarized.vim"))
-        "let g:solarized_termcolors=256
-        "let g:solarized_termtrans=1
-        "let g:solarized_contrast="normal"
-        "let g:solarized_visibility="normal"
+        let g:solarized_termcolors=256
+        let g:solarized_termtrans=1
+        let g:solarized_contrast="normal"
+        let g:solarized_visibility="normal"
         "color solarized
 endif
 
@@ -111,9 +111,6 @@ let g:miniBufExplMapWindowNavArrows=1 		" 按下Ctrl+箭头，可以切换到当
 let g:miniBufExplMapCTabSwitchBufs=1 		" Ctrl+tab移到下一个窗口；Ctrl+Shift+tab移到上一个窗口
 let g:miniBufExplModSelTarget=1    		" 不要在不可编辑内容的窗口（如TagList窗口）中打开选中的buffer
 
-let g:indentLine_color_term=239
-let g:indentLine_char='¦'
-
 " 设置分屏浏览
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
@@ -147,8 +144,8 @@ set pastetoggle=<F4>
 " ctags 相关设置
 
 " 按下F5，在当前目录递归生成tag文件
-map <F5> :!ctags -R<CR><CR>
-imap <F5> <ESC>:!ctags -R<CR><CR>
+map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR><CR>
+imap <F5> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR><CR>
 
 " vim 启动时自动载入以下tags文件
 set tags=tags
@@ -156,13 +153,21 @@ set tags+=./tags
 
 "set tags+=/usr/local/src/linux-2.6.32.61/tags
 "set tags+=/usr/local/src/linux-3.12.6/tags
-set tags+=/usr/include/tags
-set tags+=/usr/include/bits/tags
-set tags+=/usr/include/sys/tags
-set tags+=/usr/include/linux/tags
 set tags+=/usr/include/arpa/tags
+set tags+=/usr/include/bits/tags
+set tags+=/usr/include/boost/tags
+set tags+=/usr/include/c++/tags
+set tags+=/usr/include/curl/tags
+set tags+=/usr/include/gnu/tags
+set tags+=/usr/include/gtest/tags
+set tags+=/usr/include/linux/tags
+set tags+=/usr/include/libmemcached/tags
+set tags+=/usr/include/mysql/tags
+set tags+=/usr/include/net/tags
 set tags+=/usr/include/netinet/tags
-set tags+=/usr/include/c++/4.7.2/tags
+set tags+=/usr/include/openssl/tags
+set tags+=/usr/include/sasl/tags
+set tags+=/usr/include/sys/tags
 
 " 系统剪贴板映射 
 set clipboard=unnamedplus

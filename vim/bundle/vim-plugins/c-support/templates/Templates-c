@@ -10,7 +10,7 @@ SetMacro( 'EMAIL',       'qianyi.lh@alibaba-inc.com' )
 SetMacro( 'LICENSE',     'GNU General Public License' )
 SetMacro( 'ORGANIZATION','' )
 
-SetStyle( 'CPP' )
+SetStyle( 'C' )
 
 § prefix used for Doxygen commands, '\' or '@'
 SetMacro( 'DOX_CMD', '\' )
