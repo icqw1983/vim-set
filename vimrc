@@ -56,6 +56,7 @@ set cul                          " 显示当前行下划线
 
 set tabstop=8                    " 设置制表符(tab键)的宽度
 set softtabstop=8                " 设置软制表符的宽度
+set shiftwidth=4                 " 层级缩进长度
 set expandtab			 " Tab替换空格
 
 scriptencoding utf-8             " 设置编码
