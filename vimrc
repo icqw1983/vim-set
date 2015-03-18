@@ -1,7 +1,7 @@
 "-------------------------------------------------------------------
-" 	VIM 配置
+"       VIM 配置
 "
-"	最后修改时间：2014-08-10
+"      最后修改时间：2015-03-18
 "-------------------------------------------------------------------
 
 " vundle 配置
@@ -14,16 +14,16 @@ Plugin 'gmarik/Vundle'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'spf13/vim-colors'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
 Plugin 'WolfgangMehner/vim-plugins'
 
 " python
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Bundle 'klen/python-mode'
-Bundle 'python.vim'
-Bundle 'python_match.vim'
-Bundle 'pythoncomplete'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+" Bundle 'klen/python-mode'
+" Bundle 'python.vim'
+" Bundle 'python_match.vim'
+" Bundle 'pythoncomplete'
 
 Plugin 'clang-complete'
 Plugin 'supertab'
@@ -43,21 +43,21 @@ syntax on                        " 使用语法高亮
 set autoread                     " 正在编辑文件被其他程序改动时自动重新加载
 set nocp                         " 使用不兼容 vi 的模式
 
-set autoindent       		 " 设置自动对齐(缩进)
-set smartindent               	 " 智能对齐方式
-set wrap 			 " 自动换行
-set linebreak 			 " 整词换行
+set autoindent                   " 设置自动对齐(缩进)
+set smartindent                  " 智能对齐方式
+set wrap                         " 自动换行
+set linebreak                    " 整词换行
 
-set cindent              	 " 使用 C/C++ 语言的自动缩进方式
-set backspace=2          	 " 设置退格键可用
-set mouse=a              	 " 使用鼠标
-set number              	 " 显示行号
+set cindent                      " 使用 C/C++ 语言的自动缩进方式
+set backspace=2                  " 设置退格键可用
+set mouse=a                      " 使用鼠标
+set number                       " 显示行号
 set cul                          " 显示当前行下划线
 
-set tabstop=8                    " 设置制表符(tab键)的宽度
-set softtabstop=8                " 设置软制表符的宽度
+set tabstop=4                    " 设置制表符(tab键)的宽度
+set softtabstop=4                " 设置软制表符的宽度
 set shiftwidth=4                 " 层级缩进长度
-set expandtab			 " Tab替换空格
+set expandtab                    " Tab替换空格
 
 scriptencoding utf-8             " 设置编码
 
@@ -66,19 +66,21 @@ set cursorline                   " 高亮当前行
 highlight clear SignColumn
 highlight clear LineNr
 
-colorscheme ron                  " 设置配色方案
-
 if filereadable(expand("~/.vim/colors/solarized.vim"))
         let g:solarized_termcolors=256
         let g:solarized_termtrans=1
         let g:solarized_contrast="normal"
         let g:solarized_visibility="normal"
-        "color solarized
 endif
 
+set laststatus=2                " 总显示最后一个窗口的状态行
+set t_Co=256                    " 开启vim 256色
+
+colorscheme solarized           " 设置配色方案
+
 " 自动补全列表的颜色设置
-highlight Pmenu ctermfg=black 
-highlight PmenuSel ctermfg=white ctermbg=black
+highlight Pmenu ctermfg=grey
+"highlight PmenuSel ctermfg=white ctermbg=black
 
 " clang_complete 自动补全插件设置
 set completeopt=longest,menu
@@ -87,30 +89,30 @@ let g:clang_auto_select=1
 let g:clang_complete_auto=1
 let g:clang_complete_macros=1
 let g:clang_use_library=1
-let g:clang_user_options="-std=c++11"
+"let g:clang_user_options="-std=c++11"
 
 " 设置超级TAB的补全
 let g:SuperTabRetainCompletionType=0
 let g:SuperTabDefaultCompletionType="<C-X><C-U>"
 
 " UltiSnips(python 自动补全)
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsExpandTrigger="<c-j>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Pymode
-let g:pymode_lint_checkers = ['pyflakes']
-let g:pymode_trim_whitespaces = 0
-let g:pymode_options = 0
-let g:pymode_rope = 0
+"let g:pymode_lint_checkers = ['pyflakes']
+"let g:pymode_trim_whitespaces = 0
+"let g:pymode_options = 0
+"let g:pymode_rope = 0
 
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " MiniBufferExplorer 的设置
-let g:miniBufExplMapWindowNavVim=1 		" 按下Ctrl+h/j/k/l，可以切换到当前窗口的上下左右窗口
-let g:miniBufExplMapWindowNavArrows=1 		" 按下Ctrl+箭头，可以切换到当前窗口的上下左右窗口
-let g:miniBufExplMapCTabSwitchBufs=1 		" Ctrl+tab移到下一个窗口；Ctrl+Shift+tab移到上一个窗口
-let g:miniBufExplModSelTarget=1    		" 不要在不可编辑内容的窗口（如TagList窗口）中打开选中的buffer
+let g:miniBufExplMapWindowNavVim=1               " 按下Ctrl+h/j/k/l，可以切换到当前窗口的上下左右窗口
+let g:miniBufExplMapWindowNavArrows=1            " 按下Ctrl+箭头，可以切换到当前窗口的上下左右窗口
+let g:miniBufExplMapCTabSwitchBufs=1             " Ctrl+tab移到下一个窗口；Ctrl+Shift+tab移到上一个窗口
+let g:miniBufExplModSelTarget=1                  " 不要在不可编辑内容的窗口（如TagList窗口）中打开选中的buffer
 
 " 设置分屏浏览
 let Tlist_Show_One_File=1
@@ -120,13 +122,13 @@ nmap wm :WMToggle<CR>
 
 " 符号配对
 function ClosePair(char)
-	if getline('.')[col('.') - 1] == a:char
- 		return "\<Right>"
- 	elseif (a:char == "\'" || a:char == "\"")
- 		return a:char.a:char."\<left>"
- 	else
- 		return a:char
-	endif
+      if getline('.')[col('.') - 1] == a:char
+             return "\<Right>"
+       elseif (a:char == "\'" || a:char == "\"")
+             return a:char.a:char."\<left>"
+       else
+             return a:char
+      endif
 endf
 
 " 设置键映射
@@ -195,14 +197,6 @@ imap <F9> <ESC>:cn<CR>
 " 按下F10，在当前代码的 .c / .h 之间切换
 nnoremap <silent> <F10> :A<CR>
 
-" powerline 配置
-set nocompatible
-set laststatus=2
-set encoding=utf-8
-set t_Co=256
-set guifont=PowerlineSymbols\ for\ Powerline 
-let g:Powerline_symbols='unicode'
-
 " 预防手误
 cnoremap Q! q!
 cnoremap Q1 q!
@@ -214,7 +208,7 @@ command  W  w
 " 查字典
 function! Mydict()
         let expl=system('sdcv -n ' . expand("<cword>"))
-        windo if expand("%")=="dict-tmp" |q!|endif	
+        windo if expand("%")=="dict-tmp" |q!|endif      
         30vsp dict-tmp
         setlocal buftype=nofile bufhidden=hide noswapfile
         1s/^/\=expl/
