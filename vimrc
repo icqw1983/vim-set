@@ -11,20 +11,10 @@ set rtp+=~/.vim/bundle/Vundle
 call vundle#begin()
 
 Plugin 'gmarik/Vundle'
-
 Plugin 'tpope/vim-fugitive'
 Plugin 'spf13/vim-colors'
-Plugin 'bling/vim-airline'
+Plugin 'Lokaltog/vim-powerline'
 Plugin 'WolfgangMehner/vim-plugins'
-
-" python
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-" Bundle 'klen/python-mode'
-" Bundle 'python.vim'
-" Bundle 'python_match.vim'
-" Bundle 'pythoncomplete'
-
 Plugin 'clang-complete'
 Plugin 'supertab'
 Plugin 'ku-quickfix'
@@ -66,21 +56,14 @@ set cursorline                   " 高亮当前行
 highlight clear SignColumn
 highlight clear LineNr
 
-if filereadable(expand("~/.vim/colors/solarized.vim"))
-        let g:solarized_termcolors=256
-        let g:solarized_termtrans=1
-        let g:solarized_contrast="normal"
-        let g:solarized_visibility="normal"
-endif
+set laststatus=2                 " 总显示最后一个窗口的状态行
+set t_Co=256                     " 开启vim 256色
 
-set laststatus=2                " 总显示最后一个窗口的状态行
-set t_Co=256                    " 开启vim 256色
-
-colorscheme solarized           " 设置配色方案
+colorscheme ron                  " 设置配色方案
 
 " 自动补全列表的颜色设置
 highlight Pmenu ctermfg=grey
-"highlight PmenuSel ctermfg=white ctermbg=black
+highlight PmenuSel ctermfg=white ctermbg=black
 
 " clang_complete 自动补全插件设置
 set completeopt=longest,menu
@@ -89,24 +72,11 @@ let g:clang_auto_select=1
 let g:clang_complete_auto=1
 let g:clang_complete_macros=1
 let g:clang_use_library=1
-"let g:clang_user_options="-std=c++11"
+let g:clang_user_options="-std=c++11"
 
 " 设置超级TAB的补全
 let g:SuperTabRetainCompletionType=0
 let g:SuperTabDefaultCompletionType="<C-X><C-U>"
-
-" UltiSnips(python 自动补全)
-"let g:UltiSnipsExpandTrigger="<c-j>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" Pymode
-"let g:pymode_lint_checkers = ['pyflakes']
-"let g:pymode_trim_whitespaces = 0
-"let g:pymode_options = 0
-"let g:pymode_rope = 0
-
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " MiniBufferExplorer 的设置
 let g:miniBufExplMapWindowNavVim=1               " 按下Ctrl+h/j/k/l，可以切换到当前窗口的上下左右窗口
@@ -163,6 +133,7 @@ set tags+=/usr/include/c++/tags
 set tags+=/usr/include/curl/tags
 set tags+=/usr/include/gnu/tags
 set tags+=/usr/include/gtest/tags
+set tags+=/usr/include/glog/tags
 set tags+=/usr/include/linux/tags
 set tags+=/usr/include/libmemcached/tags
 set tags+=/usr/include/mysql/tags
@@ -214,6 +185,4 @@ function! Mydict()
         1s/^/\=expl/
         wincmd p
 endf
-
-"按键绑定，将调用函数并执行
 map f :call Mydict()<CR><C-j><C-l>

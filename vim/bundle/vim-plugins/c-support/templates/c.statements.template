@@ -36,22 +36,19 @@ else {
 <CURSOR><SPLIT>
 }
 == Statements.while == map:sw, shortcut:w  ==
-while ( <CURSOR> )
+while (<CURSOR>)
 == Statements.while block == map:swh, shortcut:h  ==
-while ( <CURSOR> ) {
+while (<CURSOR>) {
 <SPLIT>}
 == Statements.switch == map:ss, shortcut:s  ==
-switch ( <CURSOR> ) {
-	case <-LABEL->:	
+switch (<CURSOR>) {
+    case <-LABEL->:	
 		<SPLIT>break;
-
-	case <-LABEL->:	
+    case <-LABEL->:	
 		break;
-
-	case <-LABEL->:	
+    case <-LABEL->:	
 		break;
-
-	default:	
+    default:	
 		break;
 }				/* -----  end switch  ----- */
 == Statements.case == map:sc, shortcut:c  ==

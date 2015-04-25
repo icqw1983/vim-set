@@ -37,37 +37,39 @@
 == SEP: Comments.sep_file ==
 
 == Comments.file description impl == map:cfdi, shortcut:c, start, noindent ==
-// =====================================================================================
-//
-//       Filename:  |FILENAME|
-//
-//    Description:  <CURSOR>
-//
-//        Version:  1.0
-//        Created:  |DATE| |TIME|
-//       Revision:  none
-//       Compiler:  g++
-//
-//         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
-//        Company:  |COMPANY|
-//
-// =====================================================================================
+/*
+ * (C) 2007-2015 Alibaba Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ *
+ * |FILENAME| is for <CURSOR>
+ *
+ * Version: 1.0  |DATE| |TIME| Exp $
+ *
+ * Authors:  
+ *     |AUTHOR| (|AUTHORREF|), |EMAIL|
+ *
+ */
+
 == Comments.file description header == map:cfdh, shortcut:h, start, noindent ==
-// =====================================================================================
-//
-//       Filename:  |FILENAME|
-//
-//    Description:  <CURSOR>
-//
-//        Version:  1.0
-//        Created:  |DATE| |TIME|
-//       Revision:  none
-//       Compiler:  g++
-//
-//         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
-//        Company:  |COMPANY|
-//
-// =====================================================================================
+/*
+ * (C) 2007-2015 Alibaba Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ *
+ * |FILENAME| is for <CURSOR>
+ *
+ * Version: 1.0  |DATE| |TIME| Exp $
+ *
+ * Authors:  
+ *     |AUTHOR| (|AUTHORREF|), |EMAIL|
+ *
+ */
+
 == ENDTEMPLATE ==
 
 == LIST: comments_c_sections == hash ==
