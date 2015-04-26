@@ -44,11 +44,11 @@
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  *
- * |FILENAME| is for <CURSOR>
+ * |FILENAME| -- <CURSOR>
  *
- * Version: 1.0  |DATE| |TIME| Exp $
+ * Version: 1.0  |DATE| |TIME|
  *
- * Authors:  
+ * Authors:
  *     |AUTHOR| (|AUTHORREF|), |EMAIL|
  *
  */
@@ -61,11 +61,11 @@
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  *
- * |FILENAME| is for <CURSOR>
+ * |FILENAME| -- <CURSOR>
  *
- * Version: 1.0  |DATE| |TIME| Exp $
+ * Version: 1.0  |DATE| |TIME|
  *
- * Authors:  
+ * Authors:
  *     |AUTHOR| (|AUTHORREF|), |EMAIL|
  *
  */
