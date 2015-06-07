@@ -1,7 +1,7 @@
 vim-set
 =======
 
-我的vim配置和bashrc配置（bashrc只是为了备份自己的设置...请无视之）
+我的vim配置
 
 vim配置安装方法：
 
