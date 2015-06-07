@@ -176,7 +176,7 @@ command  Wq wq
 command  WQ wq
 command  W  w
 
-" 查字典
+" 查字典（vim 普通模式下，把光标移动到一个单词上，按下 f 键即可，这个需要安装 sdcv 软件）
 function! Mydict()
         let expl=system('sdcv -n ' . expand("<cword>"))
         windo if expand("%")=="dict-tmp" |q!|endif      
