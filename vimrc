@@ -62,7 +62,7 @@ set t_Co=256                     " 开启vim 256色
 colorscheme ron                  " 设置配色方案
 
 " 自动补全列表的颜色设置
-highlight Pmenu ctermfg=grey
+highlight Pmenu ctermfg=black
 highlight PmenuSel ctermfg=white ctermbg=black
 
 " clang_complete 自动补全插件设置
