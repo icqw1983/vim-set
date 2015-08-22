@@ -1,30 +1,29 @@
 "-------------------------------------------------------------------
 "       VIM 配置
 "
-"      最后修改时间：2015-03-18
+"      最后修改时间：2015-08-22
 "-------------------------------------------------------------------
 
 " vundle 配置
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle
+set rtp+=~/.vim/bundle/Vundle.Vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle'
-Plugin 'tpope/vim-fugitive'
-Plugin 'spf13/vim-colors'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'WolfgangMehner/vim-plugins'
-Plugin 'clang-complete'
-Plugin 'supertab'
-Plugin 'ku-quickfix'
-Plugin 'echofunc.vim'
-Plugin 'a.vim'
-Plugin 'minibufexpl.vim'
-Plugin 'mru.vim'
-Plugin 'winmanager'
-Plugin 'taglist.vim'
-Plugin 'tagexplorer.vim'
+Plugin 'VundleVim/Vundle.Vim'       " vim 插件管理
+Plugin 'spf13/vim-colors'           " 配色相关
+Plugin 'tpope/vim-fugitive'         " 配色相关
+Plugin 'Lokaltog/vim-powerline'     " 状态栏
+Plugin 'WolfgangMehner/vim-plugins' " 插件集合, 文件模板什么的
+Plugin 'kien/ctrlp.vim'             " 项目文件搜索
+Plugin 'clang-complete'             " 代码补全
+Plugin 'supertab'                   " 映射 tab 补全
+Plugin 'ku-quickfix'                " 编译错误修正
+Plugin 'echofunc.vim'               " 显示函数原型（依赖ctags）
+Plugin 'a.vim'                      " .c/.h 跳转
+Plugin 'mru.vim'                    " 最近打开文件列表
+Plugin 'winmanager'                 " 窗口管理
+Plugin 'taglist.vim'                " tag 信息窗口
 
 call vundle#end()
 
@@ -44,10 +43,10 @@ set mouse=a                      " 使用鼠标
 set number                       " 显示行号
 set cul                          " 显示当前行下划线
 
-set tabstop=4                    " 设置制表符(tab键)的宽度
-set softtabstop=4                " 设置软制表符的宽度
-set shiftwidth=4                 " 层级缩进长度
-set expandtab                    " 键盘输入的Tab自动替换为空格
+set expandtab                    " tab 自动替换为空格
+set tabstop=2                    " 设置制表符(tab键)的宽度
+set softtabstop=2                " 设置软制表符的宽度
+set shiftwidth=2                 " 自动缩进所使用的空白长度
 
 scriptencoding utf-8             " 设置编码
 
@@ -78,22 +77,16 @@ let g:clang_user_options="-std=c++11"
 let g:SuperTabRetainCompletionType=0
 let g:SuperTabDefaultCompletionType="<C-X><C-U>"
 
-" MiniBufferExplorer 的设置
-let g:miniBufExplMapWindowNavVim=1               " 按下Ctrl+h/j/k/l，可以切换到当前窗口的上下左右窗口
-let g:miniBufExplMapWindowNavArrows=1            " 按下Ctrl+箭头，可以切换到当前窗口的上下左右窗口
-let g:miniBufExplMapCTabSwitchBufs=1             " Ctrl+tab移到下一个窗口；Ctrl+Shift+tab移到上一个窗口
-let g:miniBufExplModSelTarget=1                  " 不要在不可编辑内容的窗口（如TagList窗口）中打开选中的buffer
-
 " 设置分屏浏览
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
-let g:winManagerWindowLayout='FileExplorer|TagList'
+let g:winManagerWindowLayout='TagList'
 nmap wm :WMToggle<CR>
 
 " 符号配对
 function ClosePair(char)
       if getline('.')[col('.') - 1] == a:char
-             return "\<Right>"
+
        elseif (a:char == "\'" || a:char == "\"")
              return a:char.a:char."\<left>"
        else
@@ -186,3 +179,13 @@ function! Mydict()
         wincmd p
 endf
 map f :call Mydict()<CR><C-j><C-l>
+
+" Ctrlp
+" 修改键盘映射
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" 默认按文件名搜索
+let g:ctrlp_by_filename = 0
+" 当尝试打开一个文件时，如果它已经在某个窗口被打开，CtrlP会尝试跳到那个窗口
+let g:ctrlp_switch_buffer = 'Et'
+
