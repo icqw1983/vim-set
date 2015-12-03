@@ -86,7 +86,7 @@ nmap wm :WMToggle<CR>
 " 符号配对
 function ClosePair(char)
       if getline('.')[col('.') - 1] == a:char
-
+            return "\<Right>"
        elseif (a:char == "\'" || a:char == "\"")
              return a:char.a:char."\<left>"
        else
